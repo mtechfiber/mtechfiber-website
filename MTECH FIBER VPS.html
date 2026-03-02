@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTECH Network & Data Solutions</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* NAV */
+nav{
+    background:#020617;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo img{
+    height:40px;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+/* DROPDOWN */
+.dropdown{
+    position:relative;
+    margin-left:20px;
+}
+
+.dropdown > a{
+    color:white;
+    text-decoration:none;
+    padding:10px 0;
+    display:inline-block;
+}
+
+.dropdown-content{
+    position:absolute;
+    top:100%;
+    left:0;
+    background:rgba(30,41,59,0.95);
+    backdrop-filter:blur(10px);
+    min-width:180px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:0.3s;
+    z-index:999;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:12px;
+    color:white;
+}
+
+.dropdown-content a:hover{
+    background:#334155;
+}
+
+.dropdown:hover .dropdown-content{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(to right,#0f172a,#1e293b);
+    padding:80px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#94a3b8;
+}
+
+/* VPN SLIDER */
+.slider{
+    max-width:900px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.slides{
+    display:flex;
+    width:300%;
+    animation:slide 15s infinite;
+}
+
+.slides img{
+    width:100%;
+    height:400px;
+    object-fit:contain;
+}
+
+@keyframes slide{
+    0%,30%{margin-left:0;}
+    35%,65%{margin-left:-100%;}
+    70%,100%{margin-left:-200%;}
+}
+
+/* LOGO SLIDER */
+.logo-slider{
+    overflow:hidden;
+    background:rgba(0,0,0,0.15);
+    padding:30px 0;
+}
+
+.logo-track{
+    display:flex;
+    animation:scroll 25s linear infinite;
+}
+
+.logo-track img{
+    width:180px;
+    height:100px;
+    object-fit:contain;
+    margin:0 30px;
+    transition:.3s;
+}
+
+.logo-track img:hover{
+    transform:scale(1.1);
+}
+
+@keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+}
+
+/* VIDEO MODAL */
+.video-modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    z-index:1000;
+}
+
+.video-modal.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.video-container{
+    position:relative;
+    width:85%;
+    max-width:900px;
+}
+
+.video-container video{
+    width:100%;
+    border-radius:15px;
+}
+
+.close-btn{
+    position:absolute;
+    top:-40px;
+    right:0;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    background:#020617;
+    text-align:center;
+    padding:20px;
+    color:#64748b;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .slides img{
+        height:250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+   <h2 class="logo">
+      <img src="logo.png" alt="MTECH Logo">
+   </h2>
+
+   <div class="menu">
+        <a href="#home">Home</a>
+
+        <div class="dropdown">
+            <a href="#">VPN Remote ▾</a>
+            <div class="dropdown-content">
+                <a href="https://your-vpn-link.com" target="_blank">Register</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="#" onclick="openVideo()">Payment Reminder▾</a>
+            <div class="dropdown-content">
+                <a href="https://your-payment-link.com" target="_blank">Register</a>
+            </div>
+        </div>
+   </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <h1>Fast & Secure VPS Solutions</h1>
+    <p>
+        Professional VPS Deployment • Secure VPN Setup • 
+        MikroTik Configuration • MikroTik Payment Reminder Portal
+    </p>
+</section>
+
+<!-- VPN SECTION -->
+<section id="vpn" style="padding:60px 20px;text-align:center;">
+    <h2 style="margin-bottom:40px;">VPN Sample Screenshots</h2>
+    <div class="slider">
+        <div class="slides">
+            <img src="518362104_612447651903976_7951403102606975977_n.jpg">
+            <img src="518424096_612447671903974_5336449423131595786_n.jpg">
+            <img src="550999410_668635349618539_2158041129112509359_n.jpg">
+        </div>
+    </div>
+</section>
+
+<!-- PAYMENT SECTION -->
+<section id="payment" style="padding:60px 20px;text-align:center;">
+    <h2 style="margin-bottom:20px;">Payment Reminder Portal</h2>
+    <p style="color:#94a3b8; margin-bottom:40px;">
+        Customizable MikroTik Payment Reminder Portal with Auto Redirect
+    </p>
+
+    <div class="logo-slider">
+        <div class="logo-track">
+            <img src="Senobga Xenohd.png">
+            <img src="Anthony Monloy.png">
+            <img src="Daniel Quirido.png">
+            <img src="Del Valle.png">
+            <img src="Jon Skytech.png">
+
+            <img src="Senobga Xenohd.png">
+            <img src="Anthony Monloy.png">
+            <img src="Daniel Quirido.png">
+            <img src="Del Valle.png">
+            <img src="Jon Skytech.png">
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" class="video-modal" onclick="outsideClick(event)">
+    <div class="video-container">
+        <span class="close-btn" onclick="closeVideo()">✕</span>
+        <video id="sampleVideo" controls>
+            <source src="sample.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<footer>
+    © 2026 MTECH Network & Data Solutions | All Rights Reserved
+</footer>
+
+<script>
+function openVideo(){
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("sampleVideo");
+    modal.classList.add("active");
+    video.play();
+}
+
+function closeVideo(){
+    const modal = document.getElementById("videoModal");
+    const video = document.getElementById("sampleVideo");
+    modal.classList.remove("active");
+    video.pause();
+    video.currentTime = 0;
+}
+
+function outsideClick(e){
+    if(e.target.id === "videoModal"){
+        closeVideo();
+    }
+}
+</script>
+
+</body>
+</html>
