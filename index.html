@@ -18,6 +18,12 @@
 body{
     background:#0f172a;
     color:white;
+    width:100%;
+    overflow-x:hidden;
+}
+
+section{
+width:100%;
 }
 
 /* NAV */
@@ -29,8 +35,20 @@ nav{
     align-items:center;
 }
 
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
 .logo img{
     height:40px;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:600;
+    color:white;
 }
 
 .menu{
@@ -44,11 +62,11 @@ nav{
     margin-left:20px;
 }
 
-/* HERO */
 .hero{
     background:linear-gradient(to right,#0f172a,#1e293b);
     padding:80px 20px;
     text-align:center;
+    width:100%;
 }
 
 .hero h1{
@@ -319,9 +337,11 @@ scroll-behavior:smooth;
 <body>
 
 <nav>
-   <h2 class="logo">
-      <img src="logo1.png" alt="MTECH Logo">
-   </h2>
+ 
+    <div class="logo">
+   <img src="logo2.png" alt="MTECH Logo">
+   <span class="logo-text"><Strong> MTECHLINK </Strong></span>
+</div>
 
    <div class="menu">
     <a href="#home">Home</a>
@@ -497,7 +517,6 @@ The ultimate heavy-duty home lab router with USB 3.0, 1G and 2.5G Ethernet and a
 </div>
 
 </section>
-
 
 <!-- PARTNERS -->
 <section class="partners">
