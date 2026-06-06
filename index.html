@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MTECH ™ </title>
+<title>MCFG</title>
 
 <link rel="icon" type="image/png" href="favicon.png">
 
@@ -15,6 +15,10 @@
     font-family:'Segoe UI',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#0f172a;
     color:white;
@@ -23,7 +27,13 @@ body{
 }
 
 section{
-width:100%;
+    width:100%;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 20px;
 }
 
 /* NAV */
@@ -62,11 +72,11 @@ nav{
     margin-left:20px;
 }
 
+/* HERO */
 .hero{
     background:linear-gradient(to right,#0f172a,#1e293b);
     padding:80px 20px;
     text-align:center;
-    width:100%;
 }
 
 .hero h1{
@@ -91,6 +101,7 @@ nav{
     gap:20px;
     animation:slide 25s linear infinite;
 }
+
 .slides img{
     width:300px;
     height:220px;
@@ -103,6 +114,25 @@ nav{
     0%{transform:translateX(0);}
     100%{transform:translateX(-50%);}
 }
+
+/* SAMPLE BUTTON */
+.sample-btn{
+    display:inline-block;
+    padding:12px 28px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:15px;
+    transition:0.3s;
+    margin-bottom:40px;
+}
+
+.sample-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
 /* LOGO SLIDER */
 .logo-slider{
     overflow:hidden;
@@ -113,6 +143,7 @@ nav{
 
 .logo-track{
     display:flex;
+    width:max-content;
     animation:scroll 25s linear infinite;
 }
 
@@ -133,77 +164,65 @@ nav{
     100%{transform:translateX(-50%);}
 }
 
-/* VIDEO MODAL */
-.video-modal{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.85);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    opacity:0;
-    visibility:hidden;
-    transition:0.3s;
-    z-index:1000;
+/* PRODUCTS */
+.products{
+    padding:60px 20px;
+    text-align:center;
 }
 
-.video-modal.active{
-    opacity:1;
-    visibility:visible;
-}
-
-.video-container{
-    position:relative;
-    width:85%;
-    max-width:900px;
-}
-
-.video-container video{
-    width:100%;
-    border-radius:15px;
-}
-
-.close-btn{
-    position:absolute;
-    top:-40px;
-    right:0;
+.products h2{
     font-size:30px;
-    cursor:pointer;
+    margin-bottom:10px;
 }
 
-.sample-btn{
-    display:inline-block;
-    padding:12px 28px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-size:15px;
-    transition:0.3s;
+.products p{
+    color:#94a3b8;
     margin-bottom:40px;
 }
 
-.sample-btn:hover{
-    background:#1d4ed8;
-    transform:translateY(-2px);
+#productGrid{
+    display:none;
+    margin-top:30px;
 }
 
-/* FOOTER */
-footer{
-    background:#020617;
-    text-align:center;
+.product-grid{
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.product-card{
+    background:white;
     padding:20px;
-    color:#64748b;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:0.3s;
+    color:black;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-    .slides img{
-        height:250px;
-    }
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-card img{
+    width:100%;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:10px;
+}
+
+.product-card h4{
+    font-size:15px;
+    color:black;
+}
+
+.product-card p{
+    font-size:13px;
+    color:#4b5563;
+    margin:8px 0;
+    line-height:1.5;
 }
 
 /* PARTNERS */
@@ -264,295 +283,207 @@ footer{
     background:#2563eb;
 }
 
-/* PRODUCTS */
-.products{
-    padding:60px 20px;
+/* FOOTER */
+footer{
+    background:#020617;
     text-align:center;
+    padding:20px;
+    color:#64748b;
 }
 
-.products h2{
-    font-size:30px;
-    margin-bottom:10px;
+/* MOBILE */
+@media(max-width:768px){
+    nav{
+        padding:15px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .menu a{
+        margin:0 10px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .slides img{
+        height:250px;
+    }
 }
-
-.products p{
-    color:#94a3b8;
-    margin-bottom:40px;
-}
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:25px;
-    max-width:1100px;
-    margin:auto;
-}
-
-.product-card{
-background:white;
-padding:20px;
-border-radius:12px;
-border:1px solid #e5e7eb;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-transition:0.3s;
-color:black;
-}
-
-.product-card:hover{
-    transform:translateY(-5px);
-}
-
-.product-card img{
-    width:100%;
-    height:120px;
-    object-fit:contain;
-    margin-bottom:10px;
-}
-
-.product-card h4{
-    font-size:15px;
-    color:black;
-}
-
-#productGrid{
-display:none;
-margin-top:30px;
-}
-
-.product-card p{
-font-size:13px;
-color:#4b5563;
-margin:8px 0;
-line-height:1.5;
-}
-
-
-html{
-scroll-behavior:smooth;
-}
-
 </style>
 </head>
 
 <body>
 
 <nav>
- 
     <div class="logo">
-   <img src="logo2.png" alt="MTECH Logo">
-   <span class="logo-text"><Strong> MTECHLINK </Strong></span>
-</div>
+        <img src="logo2.png" alt="MTECH Logo">
+        <span class="logo-text"><strong>MARVIN CONFIGURATION (MCFG)</strong></span>
+    </div>
 
-   <div class="menu">
-    <a href="#home">Home</a>
-   <a href="#products" onclick="openProducts()">Order</a>
-    <a href="https://www.facebook.com/marvinqmarvida/" target="_blank">Contact Us</a>
-</div>
+    <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#products" onclick="openProducts()">Order</a>
+        <a href="https://www.facebook.com/marvinqmarvida/" target="_blank" rel="noopener noreferrer">Contact Us</a>
+    </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
-    <h1>Fast & Secure VPN Solutions</h1>
-    <p>
-        Mikrotik Configuration • Centralized Vendo • Remote Access Anytime Anywhere | Taokininam | Mikhmon | Vendo
-    </p>
+    <div class="container">
+        <h1>Fast & Secure VPN Solutions</h1>
+        <p>
+            Mikrotik Configuration • Centralized Vendo • Remote Access Anytime Anywhere | Taokininam | Mikhmon | Vendo
+        </p>
+    </div>
 </section>
 
-<!-- VPN SECTION -->
-<section id="vpn" style="padding:60px 20px;text-align:center;">
-    <h2 style="margin-bottom:40px;">VPN Sample Screenshots</h2>
-    <div class="slider">
-        <div class="slides">
-            <img src="vpn1.jpg">
-            <img src="vpn2.jpg">
-            <img src="vpn3.jpg">
-            <img src="vpn4.jpg">
-            <img src="vpn5.jpg">
-            <img src="vpn6.jpg">
-            <img src="vpn7.jpg">
+<section id="vpn" style="padding:60px 0;text-align:center;">
+    <div class="container">
+        <h2 style="margin-bottom:40px;">VPN Sample Screenshots</h2>
+
+        <div class="slider">
+            <div class="slides">
+                <img src="vpn1.jpg" alt="VPN Sample 1">
+                <img src="vpn2.jpg" alt="VPN Sample 2">
+                <img src="vpn3.jpg" alt="VPN Sample 3">
+                <img src="vpn4.jpg" alt="VPN Sample 4">
+                <img src="vpn5.jpg" alt="VPN Sample 5">
+                <img src="vpn6.jpg" alt="VPN Sample 6">
+                <img src="vpn7.jpg" alt="VPN Sample 7">
+            </div>
         </div>
     </div>
 </section>
 
-<!-- PAYMENT SECTION -->
-<section id="payment" style="padding:60px 20px;text-align:center;">
-    <h2 style="margin-bottom:20px;">Payment Reminder Portal</h2>
-    <p style="color:#94a3b8; margin-bottom:25px;">
-        Customizable MikroTik Payment Reminder Portal with Auto Redirect
-    </p>
+<section id="payment" style="padding:60px 0;text-align:center;">
+    <div class="container">
+        <h2 style="margin-bottom:20px;">Payment Reminder Portal</h2>
+        <p style="color:#94a3b8; margin-bottom:25px;">
+            Customizable MikroTik Payment Reminder Portal with Auto Redirect
+        </p>
 
-    <a href="1 dark - gcash,maya,bpi.html" class="sample-btn">
-        Click Sample Portal
-    </a>
+        <a href="https://sample.portal1.mtechfiber.link" class="sample-btn" target="_blank" rel="noopener noreferrer">
+            Click Sample Portal
+        </a>
 
- <div class="logo-track">
+        <div class="logo-slider">
+            <div class="logo-track">
+                <img src="Senobga Xenohd.png" alt="Senobga Xenohd">
+                <img src="Anthony Monloy.png" alt="Anthony Monloy">
+                <img src="Daniel Quirido.png" alt="Daniel Quirido">
+                <img src="Del Valle.png" alt="Del Valle">
+                <img src="Jon Skytech.png" alt="Jon Skytech">
+                <img src="Hi-Waystar.png" alt="Hi-Waystar">
+                <img src="Valdams.png" alt="Valdams">
+                <img src="Jerald.png" alt="Jerald">
+                <img src="Renz.png" alt="Renz">
+                <img src="Mico.png" alt="Mico">
 
-    <!-- SET 1 -->
-    <img src="Senobga Xenohd.png">
-    <img src="Anthony Monloy.png">
-    <img src="Daniel Quirido.png">
-    <img src="Del Valle.png">
-    <img src="Jon Skytech.png">
-    <img src="Hi-Waystar.png">
-    <img src="Valdams.png">
-    <img src="Jerald.png">
-    <img src="Renz.png">
-    <img src="Mico.png">
+                <img src="Senobga Xenohd.png" alt="Senobga Xenohd">
+                <img src="Anthony Monloy.png" alt="Anthony Monloy">
+                <img src="Daniel Quirido.png" alt="Daniel Quirido">
+                <img src="Del Valle.png" alt="Del Valle">
+                <img src="Jon Skytech.png" alt="Jon Skytech">
+                <img src="Hi-Waystar.png" alt="Hi-Waystar">
+                <img src="Valdams.png" alt="Valdams">
+                <img src="Jerald.png" alt="Jerald">
+                <img src="Renz.png" alt="Renz">
+                <img src="Mico.png" alt="Mico">
 
-    <!-- SET 2 (duplicate para smooth loop) -->
-    <img src="Senobga Xenohd.png">
-    <img src="Anthony Monloy.png">
-    <img src="Daniel Quirido.png">
-    <img src="Del Valle.png">
-    <img src="Jon Skytech.png">
-    <img src="Hi-Waystar.png">
-    <img src="Valdams.png">
-    <img src="Jerald.png">
-    <img src="Renz.png">
-    <img src="Mico.png">
-
-        <!-- SET 3 (duplicate para smooth loop) -->
-    <img src="Senobga Xenohd.png">
-    <img src="Anthony Monloy.png">
-    <img src="Daniel Quirido.png">
-    <img src="Del Valle.png">
-    <img src="Jon Skytech.png">
-    <img src="Hi-Waystar.png">
-    <img src="Valdams.png">
-    <img src="Jerald.png">
-    <img src="Renz.png">
-    <img src="Mico.png">
-
-</div>
+                <img src="Senobga Xenohd.png" alt="Senobga Xenohd">
+                <img src="Anthony Monloy.png" alt="Anthony Monloy">
+                <img src="Daniel Quirido.png" alt="Daniel Quirido">
+                <img src="Del Valle.png" alt="Del Valle">
+                <img src="Jon Skytech.png" alt="Jon Skytech">
+                <img src="Hi-Waystar.png" alt="Hi-Waystar">
+                <img src="Valdams.png" alt="Valdams">
+                <img src="Jerald.png" alt="Jerald">
+                <img src="Renz.png" alt="Renz">
+                <img src="Mico.png" alt="Mico">
+            </div>
+        </div>
     </div>
 </section>
-
-    </div>
-</div>
 
 <section class="products" id="products">
+    <div class="container">
+        <h2 onclick="toggleProducts()" style="cursor:pointer;">
+            ⚡ MikroTik & OLT Network Devices
+        </h2>
 
-<h2 onclick="toggleProducts()" style="cursor:pointer;">
-⚡ MikroTik & OLT Network Devices
-</h2>
+        <p>Available With or Without Configuration Support</p>
 
-<p>Available With or Without Configuration Support</p>
+        <div class="product-grid" id="productGrid">
+            <div class="product-card">
+                <img src="hAP lite TC.png" alt="MikroTik hAP lite TC">
+                <h4>MikroTik hAP lite TC</h4>
+                <h3 style="color:#2563eb;margin:5px 0;">₱1,500.00</h3>
+                <p>Small home AP with four ethernet ports and a colorful enclosure.</p>
+            </div>
 
-<div class="product-grid" id="productGrid">
+            <div class="product-card">
+                <img src="hexgr3.png" alt="MikroTik hEX">
+                <h4>MikroTik hEX</h4>
+                <h3 style="color:#2563eb;margin:5px 0;">₱3,500.00</h3>
+                <p>5x Gigabit Ethernet, Dual Core 880MHz CPU, 256MB RAM, USB, microSD, RouterOS L4</p>
+            </div>
 
-<div class="product-card">
+            <div class="product-card">
+                <img src="rb4011.png" alt="MikroTik RB4011">
+                <h4>MikroTik RB4011</h4>
+                <h3 style="color:#2563eb;margin:5px 0;">₱11,500.00</h3>
+                <p>The ultimate heavy-duty home lab router with USB 3.0, 1G and 2.5G Ethernet and a 10G SFP+ cage.</p>
+            </div>
 
-<img src="hAP lite TC.png">
+            <div class="product-card">
+                <img src="rb5009.png" alt="MikroTik RB5009">
+                <h4>MikroTik RB5009</h4>
+                <h3 style="color:#2563eb;margin:5px 0;">₱11,500.00</h3>
+                <p>Powerful MikroTik router with 2.5G Ethernet, 10G SFP+ cage, and strong performance for advanced setups.</p>
+            </div>
 
-<h4>MikroTik hAP lite TC</h4>
-
-<h3 style="color:#2563eb;margin:5px 0;">
-₱1,500.00
-</h3>
-
-<p style="font-size:13px;color:#4b5563;margin-top:10px;">
-Small home AP with four ethernet ports and a colorful enclosure.
-</p>
-
-</div>
-
-<div class="product-card">
-
-<img src="hexgr3.png">
-
-<h4>MikroTik hEX</h4>
-
-<h3 style="color:#2563eb;margin:5px 0;">
-₱3,500.00
-</h3>
-
-<p style="font-size:13px;color:#4b5563;margin-top:10px;">
-5x Gigabit Ethernet, Dual Core 880MHz CPU, 256MB RAM, USB, microSD, RouterOS L4
-</p>
-</div>
-
-<div class="product-card">
-
-<img src="rb4011.png">
-
-<h4>MikroTik RB4011</h4>
-
-<h3 style="color:#2563eb;margin:5px 0;">
-₱11,500.00
-</h3>
-
-<p style="font-size:13px;color:#4b5563;margin-top:10px;">
-The ultimate heavy-duty home lab router with USB 3.0, 1G and 2.5G Ethernet and a 10G SFP+ cage. You can mount four of these new routers in a single 1U rackmount space! Unprecedented processing power in such a small form factor.
-</p>
-</div>
-
-<div class="product-card">
-
-<img src="rb5009.png">
-
-<h4>MikroTik RB5009</h4>
-
-<h3 style="color:#2563eb;margin:5px 0;">
-₱11,500.00
-</h3>
-
-<p style="font-size:13px;color:#4b5563;margin-top:10px;">
-The ultimate heavy-duty home lab router with USB 3.0, 1G and 2.5G Ethernet and a 10G SFP+ cage. You can mount four of these new routers in a single 1U rackmount space! Unprecedented processing power in such a small form factor.
-</p>
-</div>
-
-<div class="product-card">
-
-<img src="V1600GS.png">
-
-<h4>Single PON Mini GPON OLT</h4>
-
-<h3 style="color:#2563eb;margin:5px 0;">
-₱9,000.00
-</h3>
-
-<p style="font-size:13px;color:#4b5563;margin-top:10px;">
-2.5Gbps | Optional Built-in Fan <br>POL networking <br>Model: V1600GS-ZF
-</p>
-</div>
-
+            <div class="product-card">
+                <img src="V1600GS.png" alt="Single PON Mini GPON OLT">
+                <h4>Single PON Mini GPON OLT</h4>
+                <h3 style="color:#2563eb;margin:5px 0;">₱9,000.00</h3>
+                <p>2.5Gbps | Optional Built-in Fan <br>POL networking <br>Model: V1600GS-ZF</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- PARTNERS -->
 <section class="partners">
+    <div class="container">
+        <h2>Our Partners</h2>
 
-    <h2>Our Partners</h2>
+        <div class="partner-grid">
+            <div class="partner-card">
+                <img src="taokininam.jpg" alt="Taokininam">
+                <h3>Taokininam</h3>
+                <p>
+                    Specialized in building SAAS Web Application Router Controller
+                    and Billing System Integration for Mikrotik users
+                </p>
 
-    <div class="partner-grid">
+                <a href="https://taokininam.com" class="partner-btn" target="_blank" rel="noopener noreferrer">
+                    Visit Partner
+                </a>
+            </div>
 
-        <!-- Partner 1 -->
-        <div class="partner-card">
-            <img src="taokininam.jpg">
-            <h3>Taokininam</h3>
-            <p>
-                Specialized in building SAAS Web Application Router Controller
-                and Billing System Integration for Mikrotik users
-            </p>
+            <div class="partner-card">
+                <img src="ispduenotice.png" alt="ISPDUENOTICE">
+                <h3>ISPDUENOTICE</h3>
+                <p>
+                    Platform designed to help Internet Service Providers
+                    automatically display payment reminders to customers.
+                </p>
 
-            <a href="https://taokininam.com" class="partner-btn" target="_blank">
-                Visit Partner
-            </a>
+                <a href="https://ispduenotice.com" class="partner-btn" target="_blank" rel="noopener noreferrer">
+                    Visit Partner
+                </a>
+            </div>
         </div>
-
-        <!-- Partner 2 -->
-        <div class="partner-card">
-            <img src="ispduenotice.png">
-            <h3>ISPDUENOTICE</h3>
-            <p>
-                Platform designed to help Internet Service Providers
-                automatically display payment reminders to customers.
-            </p>
-
-            <a href="https://ispduenotice.com" class="partner-btn" target="_blank">
-                Visit Partner
-            </a>
-        </div>
-
     </div>
 </section>
 
@@ -561,51 +492,26 @@ The ultimate heavy-duty home lab router with USB 3.0, 1G and 2.5G Ethernet and a
 </footer>
 
 <script>
-function openVideo(){
-    const modal = document.getElementById("videoModal");
-    const video = document.getElementById("sampleVideo");
-    modal.classList.add("active");
-    video.play();
-}
-
-function closeVideo(){
-    const modal = document.getElementById("videoModal");
-    const video = document.getElementById("sampleVideo");
-    modal.classList.remove("active");
-    video.pause();
-    video.currentTime = 0;
-}
-
-function outsideClick(e){
-    if(e.target.id === "videoModal"){
-        closeVideo();
-    }
-}
 function toggleProducts(){
-let grid = document.getElementById("productGrid");
+    let grid = document.getElementById("productGrid");
 
-if(grid.style.display === "none" || grid.style.display === ""){
-grid.style.display = "grid";
-}else{
-grid.style.display = "none";
-}
+    if(grid.style.display === "none" || grid.style.display === ""){
+        grid.style.display = "grid";
+    }else{
+        grid.style.display = "none";
+    }
 }
 
 function openProducts(){
+    let section = document.getElementById("products");
+    let grid = document.getElementById("productGrid");
 
-let section = document.getElementById("products");
-let grid = document.getElementById("productGrid");
+    section.scrollIntoView({
+        behavior: "smooth"
+    });
 
-/* scroll papunta sa MikroTik products */
-section.scrollIntoView({
-behavior: "smooth"
-});
-
-/* automatic open yung products */
-grid.style.display = "grid";
-
+    grid.style.display = "grid";
 }
-
 </script>
 
 </body>
